@@ -78,16 +78,18 @@
     --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
     --global-input-focus-borderColor: var(--global-color-alpha);
     --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
-
+    --global-color-input:white;
 
 }
 
 
 @media (prefers-color-scheme: dark) {
     :root {
+        --global-input-color: white;
         --global-page-color: White;
         --global-page-backgroundColor: var(--color-neutral-xxxx-dark);
         --global-input-borderColor: var(--global-color-neutral-xxxx-dark);
+        --global-color-input:var(--global-color-neutral-xxxx-dark);
     }
   }
 
@@ -237,6 +239,10 @@ hr {
     margin: 0 0 var(--global-whitespace);
 }
 
+a{
+    text-decoration: none;
+}
+
 a,
 a:visited {
     transition: all var(--global-transitionTiming-alpha);
@@ -263,6 +269,12 @@ input {
 input::placeholder {
     color: var(--global-color-neutral-x-light);
 }
+
+@media (prefers-color-scheme: dark) {
+    input::placeholder{
+        color: var(--global-color-neutral-dark);
+    }
+  }
 
 /*------------------------------------*\
 #OBJECTS
@@ -673,7 +685,7 @@ input::placeholder {
   }  
 
 .c-input:hover {
-    border-color: var(--global-color-neutral-xx-light);
+    border-color: var(--global-color-alpha);
 }
 
 .c-input:focus,
@@ -727,6 +739,7 @@ input::placeholder {
     border-radius: var(--global-borderRadius);
     justify-content: center;
     align-items: center;
+    background-color: var(--global-color-input);
 }
 
 .c-custom-option__fake_input--checkbox{
@@ -745,7 +758,7 @@ input::placeholder {
 }
 
 .c-custom-option:hover {
-    --custom-option-borderColor: var(--custom-option-hover-borderColor);
+    border-color: var(--global-color-alpha);
 }
 
 .c-custom-option:hover .c-custom-option__fake-input {
